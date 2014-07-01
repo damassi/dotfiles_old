@@ -1,0 +1,7 @@
+[push]
+	default = matching
+[user]
+	name = Christopher Pappas
+	email = damassi.pappas@gmail.com
+[credential]
+	helper = osxkeychain
