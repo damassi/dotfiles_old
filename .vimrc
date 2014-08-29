@@ -31,22 +31,23 @@ call vundle#end()
 "Base VIM configuration
 "--------------------------------------------------------------------------------------------
 
-filetype plugin indent on          " filetype detection and settings
-syntax on                          " syntax highlighting
-silent! runtime macros/matchit.vim " matchit comes with Vim
-set nocompatible                   " not strictly necessary but useful in some scenarii
-set backspace=indent,eol,start     " let the backspace key work "normally"
-set clipboard=unnamed              " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or "+.
-set hidden                         " hide unsaved buffers
-set incsearch                      " incremental search rules
-set laststatus=2                   " not strictly necessary but good for consistency
-set number
-set ruler                          " shows line number in the status line
-set cursorline        	           " cursorline on by default
-set switchbuf=useopen,usetab       " better behavior for the quickfix window and :sb
-set tags=./tags;/,tags;/           " search tags files efficiently
-set wildmenu                       " better command line completion, shows a list of matches
-nnoremap gb :buffers<CR>:sb<Space> " quick buffer navigation
+filetype plugin indent on           	" filetype detection and settings
+syntax on                           	" syntax highlighting
+silent! runtime macros/matchit.vim  	" matchit comes with Vim
+set nocompatible                    	" not strictly necessary but useful in some scenarii
+set backspace=indent,eol,start      	" let the backspace key work "normally"
+set clipboard=unnamed               	" Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or "+.
+set cursorline        	            	" cursorline on by default
+set hidden                          	" hide unsaved buffers
+set incsearch                       	" incremental search rules
+set laststatus=2                    	" not strictly necessary but good for consistency
+set number			    	                " set line numbers on by default
+set ruler                           	" shows line number in the status line
+set switchbuf=useopen,usetab        	" better behavior for the quickfix window and :sb
+set tabstop=2 shiftwidth=2 expandtab  " set tabs to 2 spaces
+set tags=./tags;/,tags;/           	  " search tags files efficiently
+set wildmenu                       	  " better command line completion, shows a list of matches
+nnoremap gb :buffers<CR>:sb<Space> 	  " quick buffer navigation
 
 
 "NERDTree configuration
