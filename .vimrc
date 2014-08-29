@@ -11,6 +11,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
 "Bundles
 "--------------------------------------------------------------------------------------------
 
@@ -41,6 +42,7 @@ set incsearch                      " incremental search rules
 set laststatus=2                   " not strictly necessary but good for consistency
 set number
 set ruler                          " shows line number in the status line
+set cursorline        	           " cursorline on by default
 set switchbuf=useopen,usetab       " better behavior for the quickfix window and :sb
 set tags=./tags;/,tags;/           " search tags files efficiently
 set wildmenu                       " better command line completion, shows a list of matches
@@ -60,4 +62,16 @@ autocmd VimEnter * wincmd p 	   " start cursor on file pane
 
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
+
+
+"Colorscheme
+"--------------------------------------------------------------------------------------------
+
+colors Monokai
+
+" Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
 
