@@ -22,6 +22,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-haml'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
@@ -45,6 +46,18 @@ set tags=./tags;/,tags;/           " search tags files efficiently
 set wildmenu                       " better command line completion, shows a list of matches
 nnoremap gb :buffers<CR>:sb<Space> " quick buffer navigation
 
+
+"NERDTree configuration
+"--------------------------------------------------------------------------------------------
+
 autocmd VimEnter * NERDTree 	   " open nerdtree by default
 let NERDTreeShowHidden = 1    	   " show hidden files by default
 autocmd VimEnter * wincmd p 	   " start cursor on file pane
+
+
+"FuzzyFinder (CtrlP) Settings
+"--------------------------------------------------------------------------------------------
+
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_map = '<c-p>'
+
