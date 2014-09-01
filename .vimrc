@@ -60,6 +60,7 @@ set sidescroll=1
 set switchbuf=useopen,usetab          " better behavior for the quickfix window and :sb
 set tabstop=2 shiftwidth=2 expandtab  " set tabs to 2 spaces
 set tags=./tags;/,tags;/              " search tags files efficiently
+set vb                                " turn off annoying beeps
 set wildmenu                          " better command line completion, shows a list of matches
 nnoremap gb :buffers<CR>:sb<Space>    " quick buffer navigation
 
@@ -68,6 +69,7 @@ nnoremap gb :buffers<CR>:sb<Space>    " quick buffer navigation
 "--------------------------------------------------------------------------------------------
 
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc
+autocmd BufWritePre * :%s/\s\+$//e    " trim trailing whitespace
 
 
 "Key Re-mappings
