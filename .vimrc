@@ -66,18 +66,19 @@ set wildmenu                          " better command line completion, shows a 
 nnoremap gb :buffers<CR>:sb<Space>    " quick buffer navigation
 
 
-"Automatically reload vimrc when it's saved
+" Vim configuration
 "--------------------------------------------------------------------------------------------
 
-autocmd! BufWritePost vimrc.symlink so ~/.vimrc
-autocmd BufWritePre * :%s/\s\+$//e    " trim trailing whitespace
+autocmd! BufWritePost vimrc.symlink so ~/.vimrc             " reload .vimrc on save
+autocmd BufWritePre * :%s/\s\+$//e                          " trim trailing whitespace
+autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax to coffee
 
 
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
-map <C-J> :bnext<CR>            " next buffer
-map <C-K> :bprev<CR>            " prev buffer
+map <C-J> :bprev<CR>            " prev buffer
+map <C-K> :bnext<CR>            " next buffer
 map <C-L> :tabn<CR>             " next tab
 map <C-H> :tabp<CR>             " prev tab
 vmap <C-x> :!pbcopy<CR>         " simulate native cut
@@ -110,7 +111,9 @@ let g:airline#extensions#tabline#enabled = 1
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors Monokai
+colors monokai
+"set fillchars+=vert:\│
+"hi clear VertSplit
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
