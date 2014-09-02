@@ -46,7 +46,8 @@ set autoread                          " reload files if changed by filesystem
 set backspace=indent,eol,start        " let the backspace key work "normally"
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or "+.
 set cursorline                        " cursorline on by default
-set guioptions-=rL                     " remove righthand scrollbar
+set guioptions-=r                     " disable scrollbars on mvim
+set guioptions-=L                     " disable left scrollbar on vsplit
 set noswapfile                        " disable swp file creation
 set nobackup
 set nowritebackup
