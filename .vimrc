@@ -30,6 +30,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'bling/vim-airline.git'
+Bundle 'vim-scripts/bufkill.vim'
 
 call vundle#end()
 
@@ -75,10 +76,12 @@ autocmd BufWritePre * :%s/\s\+$//e    " trim trailing whitespace
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
-map <C-J> :bnext<CR>      " Next buffer
-map <C-K> :bprev<CR>      " Prev buffer
-map <C-L> :tabn<CR>       " Next tab
-map <C-H> :tabp<CR>       " Prev tab
+map <C-J> :bnext<CR>            " next buffer
+map <C-K> :bprev<CR>            " prev buffer
+map <C-L> :tabn<CR>             " next tab
+map <C-H> :tabp<CR>             " prev tab
+vmap <C-x> :!pbcopy<CR>         " simulate native cut
+vmap <C-c> :w !pbcopy<CR><CR>   " and paste
 
 
 "NERDTree configuration
