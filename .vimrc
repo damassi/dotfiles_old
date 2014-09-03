@@ -31,6 +31,7 @@ Bundle 'tpope/vim-commentary.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'bling/vim-airline.git'
 Bundle 'vim-scripts/bufkill.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -114,8 +115,8 @@ let g:airline#extensions#tabline#enabled = 1
 "--------------------------------------------------------------------------------------------
 
 colors monokai
-"set fillchars+=vert:\│
-"hi clear VertSplit
+set fillchars+=vert:\.
+hi clear VertSplit
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
@@ -133,4 +134,4 @@ function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
   return ""
-endfunction
+endfunctionndfunction
