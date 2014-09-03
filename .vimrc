@@ -33,6 +33,7 @@ Bundle 'bling/vim-airline.git'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+Bundle 'Yggdroot/indentLine'
 
 call vundle#end()
 
@@ -116,8 +117,9 @@ let g:airline#extensions#tabline#enabled = 1
 "--------------------------------------------------------------------------------------------
 
 colors monokai
-set fillchars+=vert:\.
-hi clear VertSplit
+set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
+hi clear VertSplit                    " Clear defaults
+highlight SignColumn guibg=#31322c    " GitGutter background color
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
