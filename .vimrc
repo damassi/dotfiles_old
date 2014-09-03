@@ -45,15 +45,20 @@ filetype plugin indent on             " filetype detection and settings
 syntax on                             " syntax highlighting
 silent! runtime macros/matchit.vim    " matchit comes with Vim
 set nocompatible                      " not strictly necessary but useful in some scenarii
+set autoindent                        " always set autoindent on
+set copyindent                        " copy previous autoindent
 set autoread                          " reload files if changed by filesystem
 set backspace=indent,eol,start        " let the backspace key work "normally"
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or "+.
 set cursorline                        " cursorline on by default
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
+set history=1000                      " number of history levels
+set undolevels=1000                   " more undo
+set hlsearch                          " highlight search as you type
 set noswapfile                        " disable swp file creation
-set nobackup
-set nowritebackup
+set nobackup                          " ***
+set nowritebackup                     " ***
 set nowrap                            " no wordwrapping
 set hidden                            " hide unsaved buffers
 set incsearch                         " incremental search rules
@@ -63,6 +68,7 @@ set ruler                             " shows line number in the status line
 set scrolloff=10                      " scrolling and panning offsets
 set sidescrolloff=15
 set sidescroll=1
+set smarttab                          " better tabs
 set switchbuf=useopen,usetab          " better behavior for the quickfix window and :sb
 set tabstop=2 shiftwidth=2 expandtab  " set tabs to 2 spaces
 set tags=./tags;/,tags;/              " search tags files efficiently
