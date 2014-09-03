@@ -32,6 +32,7 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'bling/vim-airline.git'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'Raimondi/delimitMate'
 
 call vundle#end()
 
@@ -134,4 +135,4 @@ function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
   return ""
-endfunctionndfunction
+endfunction
