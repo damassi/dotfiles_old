@@ -48,8 +48,8 @@ set nocompatible                      " not strictly necessary but useful in som
 set autoindent                        " always set autoindent on
 set copyindent                        " copy previous autoindent
 set autoread                          " reload files if changed by filesystem
-set backspace=indent,eol,start        " let the backspace key work "normally"
-set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or "+.
+set backspace=indent,eol,start        " let the backspace key work "normally
+set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or +.
 set cursorline                        " cursorline on by default
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
@@ -68,6 +68,7 @@ set ruler                             " shows line number in the status line
 set scrolloff=10                      " scrolling and panning offsets
 set sidescrolloff=15
 set sidescroll=1
+set smartindent                       " auto indent after brackets
 set smarttab                          " better tabs
 set switchbuf=useopen,usetab          " better behavior for the quickfix window and :sb
 set tabstop=2 shiftwidth=2 expandtab  " set tabs to 2 spaces
