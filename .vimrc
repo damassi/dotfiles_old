@@ -78,13 +78,21 @@ set wildmenu                          " better command line completion, shows a 
 nnoremap gb :buffers<CR>:sb<Space>    " quick buffer navigation
 
 
+" Enable per-project .vimrc files
+" -------------------------------------------------------------------------------------------
+
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
+
+
 " Vim configuration
 "--------------------------------------------------------------------------------------------
 
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc             " reload .vimrc on save
 autocmd BufWritePre * :%s/\s\+$//e                          " trim trailing whitespace
 autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax to coffee
-
+autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix when populated
+autocmd QuickFixCmdPost    l* nested lwindow
 
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
