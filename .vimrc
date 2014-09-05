@@ -35,6 +35,7 @@ Bundle 'vim-scripts/bufkill.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Yggdroot/indentLine'
+Bundle 'slim-template/vim-slim'
 
 call vundle#end()
 
@@ -145,14 +146,3 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
-
-" let &t_SI .= "\<Esc>[?2004h"
-" let &t_EI .= "\<Esc>[?2004l"
-
-" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-" function! XTermPasteBegin()
-"   set pastetoggle=<Esc>[201~
-"   set paste
-"   return ""
-" endfunction
