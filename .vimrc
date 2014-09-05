@@ -17,6 +17,7 @@ call vundle#begin()
 "--------------------------------------------------------------------------------------------
 
 Bundle 'gmarik/Vundle.vim'
+Bundle 'vim-scripts/BufOnly.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomasr/molokai'
 Bundle 'kchmck/vim-coffee-script'
@@ -64,6 +65,7 @@ set hidden                            " hide unsaved buffers
 set incsearch                         " incremental search rules
 set laststatus=2                      " not strictly necessary but good for consistency
 set number                            " set line numbers on by default
+" set relativenumber                    " sets relative numbers in visualmode for simpler counts
 set ruler                             " shows line number in the status line
 set scrolloff=10                      " scrolling and panning offsets
 set sidescrolloff=15
@@ -137,8 +139,6 @@ hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
 set guifont=Monaco:h12
 
-
-
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
@@ -146,13 +146,13 @@ if $TERM_PROGRAM =~ "iTerm"
 endif
 
 
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+" let &t_SI .= "\<Esc>[?2004h"
+" let &t_EI .= "\<Esc>[?2004l"
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
+" function! XTermPasteBegin()
+"   set pastetoggle=<Esc>[201~
+"   set paste
+"   return ""
+" endfunction
