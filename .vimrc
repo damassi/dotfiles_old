@@ -36,6 +36,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Yggdroot/indentLine'
 Bundle 'slim-template/vim-slim'
+Bundle 'godlygeek/tabular'
 
 call vundle#end()
 
@@ -100,12 +101,13 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
-map <C-J> :bprev<CR>            " prev buffer
-map <C-K> :bnext<CR>            " next buffer
-map <C-L> :tabn<CR>             " next tab
-map <C-H> :tabp<CR>             " prev tab
-vmap <C-x> :!pbcopy<CR>         " simulate native cut
-vmap <C-c> :w !pbcopy<CR><CR>   " and paste
+map <C-J> :bprev<CR>             " prev buffer
+map <C-K> :bnext<CR>             " next buffer
+map <C-L> :tabn<CR>              " next tab
+map <C-H> :tabp<CR>              " prev tab
+vmap <C-x> :!pbcopy<CR>          " simulate native cut
+vmap <C-c> :w !pbcopy<CR><CR>    " and paste
+
 
 
 "NERDTree configuration
