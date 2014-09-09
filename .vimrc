@@ -37,7 +37,6 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'Yggdroot/indentLine'
 Bundle 'slim-template/vim-slim'
 Bundle 'godlygeek/tabular'
-Bundle 'mattn/emmet-vim'
 
 call vundle#end()
 
@@ -132,13 +131,6 @@ let g:ctrlp_map = '<c-p>'
 "--------------------------------------------------------------------------------------------
 
 let g:airline#extensions#tabline#enabled = 1
-
-
-"Emmet Configuration
-"--------------------------------------------------------------------------------------------
-
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,erb EmmetInstall
 
 
 "Colorscheme
