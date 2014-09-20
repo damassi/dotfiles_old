@@ -37,6 +37,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'Yggdroot/indentLine'
 Bundle 'slim-template/vim-slim'
 Bundle 'godlygeek/tabular'
+Bundle 'lfilho/cosco.vim'
 
 call vundle#end()
 
@@ -44,6 +45,7 @@ call vundle#end()
 "General VIM configuration
 "--------------------------------------------------------------------------------------------
 
+let mapleader=","                     " remap leader to ,
 filetype plugin indent on             " filetype detection and settings
 syntax on                             " syntax highlighting
 silent! runtime macros/matchit.vim    " matchit comes with Vim
@@ -101,13 +103,16 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
-map <C-J> :bprev<CR>             " prev buffer
-map <C-K> :bnext<CR>             " next buffer
-map <C-L> :tabn<CR>              " next tab
-map <C-H> :tabp<CR>              " prev tab
-vmap <C-x> :!pbcopy<CR>          " simulate native cut
-vmap <C-c> :w !pbcopy<CR><CR>    " and paste
+map <C-J> :bprev<CR>                    " prev buffer
+map <C-K> :bnext<CR>                    " next buffer
+map <C-L> :tabn<CR>                     " next tab
+map <C-H> :tabp<CR>                     " prev tab
+vmap <C-x> :!pbcopy<CR>                 " simulate native cut
+vmap <C-c> :w !pbcopy<CR><CR>           " and paste
 
+" Enables <Leader>; to auto insert or remove semicolons
+autocmd FileType javascript,css, noremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css, inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 
 "NERDTree configuration
@@ -136,7 +141,7 @@ let g:airline#extensions#tabline#enabled = 1
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors monokai
+colors hybrid
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -147,5 +152,7 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+
 
 
