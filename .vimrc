@@ -38,6 +38,7 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'slim-template/vim-slim'
 Bundle 'godlygeek/tabular'
 Bundle 'lfilho/cosco.vim'
+Bundle 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
 
