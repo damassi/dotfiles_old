@@ -39,6 +39,7 @@ Bundle 'slim-template/vim-slim'
 Bundle 'godlygeek/tabular'
 Bundle 'lfilho/cosco.vim'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'wavded/vim-stylus'
 
 call vundle#end()
 
@@ -142,7 +143,7 @@ let g:airline#extensions#tabline#enabled = 1
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors hybrid
+colors monokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
