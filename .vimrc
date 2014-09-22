@@ -120,11 +120,12 @@ autocmd FileType javascript,css, inoremap <silent> <Leader>; <c-o>:call cosco#co
 "NERDTree configuration
 "--------------------------------------------------------------------------------------------
 
-autocmd VimEnter * NERDTree      " open nerdtree by default
-let NERDTreeShowHidden = 1       " show hidden files by default
-let NERDTreeMinimalUI = 1        " only relevant parts
-let NERDTreeDirArrows = 1        " add arrows
-autocmd VimEnter * wincmd p      " start cursor on file pane
+autocmd VimEnter * NERDTree           " open nerdtree by default
+let NERDTreeShowHidden = 1            " show hidden files by default
+let NERDTreeMinimalUI = 1             " only relevant parts
+let NERDTreeDirArrows = 1             " add arrows
+let NERDTreeIgnore = ['\.DS_Store']   " ignore certain files and patterns
+autocmd VimEnter * wincmd p           " start cursor on file pane
 
 
 "FuzzyFinder (CtrlP) Settings
