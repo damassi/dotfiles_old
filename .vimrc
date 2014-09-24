@@ -3,7 +3,7 @@
 "Vundle Configuration
 "--------------------------------------------------------------------------------------------
 
-set shell=/bin/sh           " ensure fish term is off
+set shell=/bin/sh             " ensure fish term is off
 set term=xterm-256color       " iTerm2 support
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -47,7 +47,6 @@ call vundle#end()
 "General VIM configuration
 "--------------------------------------------------------------------------------------------
 
-let mapleader=","                     " remap leader to ,
 filetype plugin indent on             " filetype detection and settings
 syntax on                             " syntax highlighting
 silent! runtime macros/matchit.vim    " matchit comes with Vim
@@ -55,8 +54,8 @@ set nocompatible                      " not strictly necessary but useful in som
 set autoindent                        " always set autoindent on
 set copyindent                        " copy previous autoindent
 set autoread                          " reload files if changed by filesystem
-set backspace=indent,eol,start        " let the backspace key work "normally
-set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with "* or +.
+set backspace=indent,eol,start        " let the backspace key work normally
+set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with  * or +.
 set cursorline                        " cursorline on by default
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
@@ -105,6 +104,7 @@ autocmd QuickFixCmdPost    l* nested lwindow
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
+let mapleader=","                       " remap leader to ,
 map <C-J> :bprev<CR>                    " prev buffer
 map <C-K> :bnext<CR>                    " next buffer
 map <C-L> :tabn<CR>                     " next tab
@@ -155,6 +155,8 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+
 
 
 
