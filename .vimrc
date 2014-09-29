@@ -41,6 +41,7 @@ Bundle 'lfilho/cosco.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'wavded/vim-stylus'
 Bundle 'bling/vim-bufferline'
+Bundle 'rstacruz/sparkup'
 
 call vundle#end()
 
@@ -152,7 +153,7 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors monokai
+colors jellybeans
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
