@@ -40,6 +40,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'lfilho/cosco.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'wavded/vim-stylus'
+Bundle 'bling/vim-bufferline'
 
 call vundle#end()
 
@@ -101,6 +102,7 @@ autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax t
 autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix when populated
 autocmd QuickFixCmdPost    l* nested lwindow
 
+
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
@@ -115,6 +117,9 @@ vmap <C-c> :w !pbcopy<CR><CR>           " and paste
 " Enables <Leader>; to auto insert or remove semicolons
 autocmd FileType javascript,css, noremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css, inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+
+" Reload vim on changes to .vimrc
+noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 
 "NERDTree configuration
