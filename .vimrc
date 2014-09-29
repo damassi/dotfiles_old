@@ -42,6 +42,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'wavded/vim-stylus'
 Bundle 'bling/vim-bufferline'
 Bundle 'rstacruz/sparkup'
+Bundle 'heavenshell/vim-jsdoc'
 
 call vundle#end()
 
@@ -140,6 +141,12 @@ autocmd VimEnter * wincmd p           " start cursor on file pane
 
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
+
+
+"JSDoc Settings
+"--------------------------------------------------------------------------------------------
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_return = 0
 
 
 "Airline configuration
