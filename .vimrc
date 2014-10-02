@@ -159,11 +159,12 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors molokai " molokai jellybeans
+colors railscasts "molokai jellybeans molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
 set guifont=Monaco:h12
+" set guifont=Menlo Monaco:h12
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
