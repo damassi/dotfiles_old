@@ -159,7 +159,7 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors jellybeans
+colors molokai " molokai jellybeans
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -170,4 +170,11 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+
+
+
+
+
+
 
