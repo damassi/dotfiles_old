@@ -42,6 +42,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'wavded/vim-stylus'
 Bundle 'rstacruz/sparkup'
 Bundle 'heavenshell/vim-jsdoc'
+Bundle 'digitaltoad/vim-jade'
 
 call vundle#end()
 
@@ -140,6 +141,10 @@ autocmd VimEnter * wincmd p           " start cursor on file pane
 
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = {
+ \ 'dir' : 'bower_components$\|node_modules$\|\.git$\|tmp$\|\.svn$\|\.sass-cache$\|public/compiled$\|vendor/gems$',
+ \ 'file': '\.git$\|\.hg$\|\.svn$\|\.scssc$'
+ \ }
 
 
 "JSDoc Settings
@@ -154,6 +159,17 @@ let g:jsdoc_return = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s > '
+
+
+"Sparkup Configuration
+"--------------------------------------------------------------------------------------------
+
+augroup sparkup_types
+  " Remove ALL autocommands of the current group.
+  autocmd!
+  " Add sparkup to new filetypes
+  autocmd FileType mustache,php,js,jsx runtime! ftplugin/html/sparkup.vim
+augroup END
 
 
 "Colorscheme
@@ -171,11 +187,3 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
-
-
-
-
-
-
-
-
