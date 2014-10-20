@@ -161,21 +161,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 
 
-"Sparkup Configuration
-"--------------------------------------------------------------------------------------------
-
-augroup sparkup_types
-  " Remove ALL autocommands of the current group.
-  autocmd!
-  " Add sparkup to new filetypes
-  autocmd FileType mustache,php,js,jsx runtime! ftplugin/html/sparkup.vim
-augroup END
-
-
 "Colorscheme
 "--------------------------------------------------------------------------------------------
 
-colors railscasts "molokai jellybeans molokai
+colors jellybeans "railscasts molokai molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -187,3 +176,11 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+
+
+
+
+
+
+
