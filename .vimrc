@@ -124,6 +124,8 @@ autocmd FileType javascript,css, inoremap <silent> <Leader>; <c-o>:call cosco#co
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+"This unsets the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 "NERDTree configuration
 "--------------------------------------------------------------------------------------------
