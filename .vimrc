@@ -105,6 +105,13 @@ autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix
 autocmd QuickFixCmdPost    l* nested lwindow
 
 
+"Additional syntax settings
+"--------------------------------------------------------------------------------------------
+
+"Ensure that rails jbuilder files are read as ruby
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+
 "Key Re-mappings
 "--------------------------------------------------------------------------------------------
 
