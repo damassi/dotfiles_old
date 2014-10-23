@@ -104,16 +104,22 @@ autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax t
 autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix when populated
 autocmd QuickFixCmdPost    l* nested lwindow
 
+"Highlight text that exceeds 74 characters
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%104v.*/
+augroup END
 
-"Additional syntax settings
-"--------------------------------------------------------------------------------------------
+
+" Additional syntax settings
+" --------------------------------------------------------------------------------------------
 
 "Ensure that rails jbuilder files are read as ruby
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 
-"Key Re-mappings
-"--------------------------------------------------------------------------------------------
+" Key Re-mappings
+" --------------------------------------------------------------------------------------------
 
 let mapleader=","                       " remap leader to ,
 map <C-J> :bprev<CR>                    " prev buffer
@@ -134,8 +140,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "This unsets the last search pattern register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
-"NERDTree configuration
-"--------------------------------------------------------------------------------------------
+
+" NERDTree configuration
+" --------------------------------------------------------------------------------------------
 
 autocmd VimEnter * NERDTree           " open nerdtree by default
 let NERDTreeShowHidden = 1            " show hidden files by default
@@ -145,8 +152,8 @@ let NERDTreeIgnore = ['\.DS_Store']   " ignore certain files and patterns
 autocmd VimEnter * wincmd p           " start cursor on file pane
 
 
-"FuzzyFinder (CtrlP) Settings
-"--------------------------------------------------------------------------------------------
+" FuzzyFinder (CtrlP) Settings
+" --------------------------------------------------------------------------------------------
 
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
@@ -156,29 +163,28 @@ let g:ctrlp_custom_ignore = {
  \ }
 
 
-"JSDoc Settings
-"--------------------------------------------------------------------------------------------
+" JSDoc Settings
+" --------------------------------------------------------------------------------------------
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_return = 0
 
 
-"Airline configuration
-"--------------------------------------------------------------------------------------------
+" Airline configuration
+" --------------------------------------------------------------------------------------------
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 
 
-"Colorscheme
-"--------------------------------------------------------------------------------------------
+" Colorscheme
+" --------------------------------------------------------------------------------------------
 
 colors jellybeans "railscasts molokai molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
 set guifont=Monaco:h12
-" set guifont=Menlo Monaco:h12
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
