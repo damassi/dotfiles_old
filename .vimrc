@@ -43,6 +43,7 @@ Bundle 'wavded/vim-stylus'
 Bundle 'rstacruz/sparkup'
 Bundle 'heavenshell/vim-jsdoc'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'mileszs/ack.vim'
 
 call vundle#end()
 
