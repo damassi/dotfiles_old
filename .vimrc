@@ -4,7 +4,6 @@
 "--------------------------------------------------------------------------------------------
 
 set shell=/bin/sh             " ensure fish term is off
-set term=xterm-256color       " iTerm2 support
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -44,6 +43,7 @@ Bundle 'rstacruz/sparkup'
 Bundle 'heavenshell/vim-jsdoc'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/closetag.vim'
 
 call vundle#end()
 
@@ -91,14 +91,12 @@ nnoremap gb :buffers<CR>:sb<Space>    " quick buffer navigation
 
 " Enable per-project .vimrc files
 " -------------------------------------------------------------------------------------------
-
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 
 
 " Vim configuration
 "--------------------------------------------------------------------------------------------
-
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc             " reload .vimrc on save
 autocmd BufWritePre * :%s/\s\+$//e                          " trim trailing whitespace
 autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax to coffee
@@ -109,19 +107,18 @@ autocmd QuickFixCmdPost    l* nested lwindow
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
   autocmd BufEnter * match OverLength /\%104v.*/
+  autocmd Filetype html,xml,xsl,coffee,cjsx,jsx source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 augroup END
 
 
 " Additional syntax settings
 " --------------------------------------------------------------------------------------------
-
 "Ensure that rails jbuilder files are read as ruby
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 
 " Key Re-mappings
 " --------------------------------------------------------------------------------------------
-
 let mapleader=","                       " remap leader to ,
 map <C-J> :bprev<CR>                    " prev buffer
 map <C-K> :bnext<CR>                    " next buffer
@@ -144,7 +141,6 @@ nnoremap <CR> :noh<CR><CR>
 
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
-
 autocmd VimEnter * NERDTree           " open nerdtree by default
 let NERDTreeShowHidden = 1            " show hidden files by default
 let NERDTreeMinimalUI = 1             " only relevant parts
@@ -155,7 +151,6 @@ autocmd VimEnter * wincmd p           " start cursor on file pane
 
 " FuzzyFinder (CtrlP) Settings
 " --------------------------------------------------------------------------------------------
-
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
@@ -170,9 +165,19 @@ let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_return = 0
 
 
+" Sparkup Configuration
+" --------------------------------------------------------------------------------------------
+augroup sparkup_types
+  " Remove ALL autocommands of the current group.
+  autocmd!
+  " Add sparkup to new filetypes
+  autocmd FileType coffee,cjsx,jsx,js runtime! ftplugin/react/sparkup.vim
+  autocmd FileType mustache,hbs,handlebars,php,htmldjango runtime! ftplugin/html/sparkup.vim
+augroup END
+
+
 " Airline configuration
 " --------------------------------------------------------------------------------------------
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s > '
@@ -180,7 +185,6 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 
 " Colorscheme
 " --------------------------------------------------------------------------------------------
-
 colors jellybeans "railscasts molokai molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
