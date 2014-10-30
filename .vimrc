@@ -15,35 +15,35 @@ call vundle#begin()
 "Bundles
 "--------------------------------------------------------------------------------------------
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'vim-scripts/BufOnly.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tomasr/molokai'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-haml'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-surround.git'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'tpope/vim-commentary.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'bling/vim-airline.git'
-Bundle 'vim-scripts/bufkill.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'Yggdroot/indentLine'
-Bundle 'slim-template/vim-slim'
-Bundle 'godlygeek/tabular'
-Bundle 'lfilho/cosco.vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'wavded/vim-stylus'
-Bundle 'rstacruz/sparkup'
-Bundle 'heavenshell/vim-jsdoc'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'bling/vim-airline.git'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'gmarik/Vundle.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'heavenshell/vim-jsdoc'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'lfilho/cosco.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'rstacruz/sparkup'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'slim-template/vim-slim'
+Bundle 'tomasr/molokai'
+Bundle 'tpope/vim-commentary.git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-surround.git'
+Bundle 'vim-scripts/BufOnly.vim'
+Bundle 'vim-scripts/bufkill.vim'
 Bundle 'vim-scripts/closetag.vim'
+Bundle 'wavded/vim-stylus'
 
 call vundle#end()
 
@@ -100,6 +100,7 @@ set secure          " disable unsafe commands in local .vimrc files
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc             " reload .vimrc on save
 autocmd BufWritePre * :%s/\s\+$//e                          " trim trailing whitespace
 autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax to coffee
+autocmd BufRead,BufNewFile *.sass set syntax=sass           " force enable sass syntax
 autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix when populated
 autocmd QuickFixCmdPost    l* nested lwindow
 
