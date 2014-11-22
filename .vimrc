@@ -44,6 +44,7 @@ Bundle 'vim-scripts/BufOnly.vim'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'wavded/vim-stylus'
+Bundle 'maksimr/vim-jsbeautify'
 
 call vundle#end()
 
@@ -100,7 +101,6 @@ set secure          " disable unsafe commands in local .vimrc files
 autocmd! BufWritePost vimrc.symlink so ~/.vimrc             " reload .vimrc on save
 autocmd BufWritePre * :%s/\s\+$//e                          " trim trailing whitespace
 autocmd BufNewFile,BufRead *.cjsx   set syntax=coffee       " set .cjsx syntax to coffee
-autocmd BufRead,BufNewFile *.sass set syntax=sass           " force enable sass syntax
 autocmd QuickFixCmdPost [^l]* nested cwindow                " auto open quickfix when populated
 autocmd QuickFixCmdPost    l* nested lwindow
 
@@ -139,6 +139,11 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "This unsets the last search pattern register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+"JSBeautify
+autocmd FileType javascript noremap <buffer>  <leader>f :call JsBeautify()<cr>
+
+"Open error panel
+nmap <silent> <leader>er :Errors<CR>
 
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
@@ -184,9 +189,14 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 
 
+" GitGutter Config
+" --------------------------------------------------------------------------------------------
+let g:gitgutter_max_signs = 1000
+
+
 " Colorscheme
 " --------------------------------------------------------------------------------------------
-colors jellybeans "railscasts molokai molokai
+colors abra "apprentice busybee jellybeans railscasts molokai molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -197,6 +207,9 @@ if $TERM_PROGRAM =~ "iTerm"
    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+"Force enable sass syntax
+au BufRead,BufNewFile *.sass set ft=sass
 
 
 
