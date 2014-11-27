@@ -45,6 +45,7 @@ Bundle 'vim-scripts/bufkill.vim'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'shime/vim-livedown.git'
 
 call vundle#end()
 
