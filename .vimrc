@@ -66,7 +66,7 @@ set cursorline                        " cursorline on by default
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
 set history=1000                      " number of history levels
-set undolevels=1000                   " more undo
+set undolevels=10000                   " more undo
 set hlsearch                          " highlight search as you type
 set noswapfile                        " disable swp file creation
 set nobackup                          " ***
@@ -146,13 +146,17 @@ autocmd FileType javascript noremap <buffer>  <leader>f :call JsBeautify()<cr>
 "Open error panel
 nmap <silent> <leader>er :Errors<CR>
 
+"Remap escape key
+:inoremap jk <Esc>
+
+
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
 autocmd VimEnter * NERDTree           " open nerdtree by default
 let NERDTreeShowHidden = 1            " show hidden files by default
 let NERDTreeMinimalUI = 1             " only relevant parts
 let NERDTreeDirArrows = 1             " add arrows
-let NERDTreeIgnore = ['\.DS_Store']   " ignore certain files and patterns
+let NERDTreeIgnore = ['\.DS_Store\|\.sass-cache']   " ignore certain files and patterns
 autocmd VimEnter * wincmd p           " start cursor on file pane
 
 
@@ -161,7 +165,7 @@ autocmd VimEnter * wincmd p           " start cursor on file pane
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
- \ 'dir' : 'bower_components$\|node_modules$\|\.git$\|tmp$\|\.svn$\|\.sass-cache$\|public/compiled$\|vendor/gems$',
+ \ 'dir' : '\.sass-cache$\|bower_components$\|node_modules$\|\.git$\|tmp$\|\.svn$\|\.sass-cache$\|public/compiled$\|vendor/gems$',
  \ 'file': '\.git$\|\.hg$\|\.svn$\|\.scssc$'
  \ }
 
@@ -193,6 +197,11 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s > '
 " GitGutter Config
 " --------------------------------------------------------------------------------------------
 let g:gitgutter_max_signs = 1000
+
+
+" Syntasitc settings
+" --------------------------------------------------------------------------------------------
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 
 " Colorscheme
