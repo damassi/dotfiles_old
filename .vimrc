@@ -149,6 +149,9 @@ nmap <silent> <leader>er :Errors<CR>
 "Remap escape key
 :inoremap jk <Esc>
 
+"Autoclose html tags
+inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
+
 
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
