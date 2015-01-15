@@ -129,27 +129,35 @@ map <C-H> :tabp<CR>                     " prev tab
 vmap <C-x> :!pbcopy<CR>                 " simulate native cut
 vmap <C-c> :w !pbcopy<CR><CR>           " and paste
 
-" Enables <Leader>; to auto insert or remove semicolons
+"Enables <Leader>; to auto insert or remove semicolons
+"Usage: ,; adds ; or : depending upon context
 autocmd FileType javascript,css, noremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css, inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
-" Quickly edit/reload the vimrc file
+"Quickly edit/reload the vimrc file
+"Usage: ,ev - Edit .vimrc.  ,sv - Reload .vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "This unsets the last search pattern register by hitting return
+"Usage: After searching, hitting enter clears all search finds.  Pressing `n`
+" returns them
 nnoremap <CR> :noh<CR><CR>
 
 "JSBeautify
+"Usage: ,f
 autocmd FileType javascript noremap <buffer>  <leader>f :call JsBeautify()<cr>
 
 "Open error panel
+"Usage: When there are errors, ,er opens panel)
 nmap <silent> <leader>er :Errors<CR>
 
 "Remap escape key
+"Usage: In insert mode, jk exits)
 :inoremap jk <Esc>
 
 "Autoclose html tags
+"Usage: <tag>[PRESS TAB]
 inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
 
 
