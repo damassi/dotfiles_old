@@ -29,7 +29,8 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lfilho/cosco.vim'
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'rstacruz/sparkup'
 Bundle 'scrooloose/nerdtree'
@@ -46,6 +47,7 @@ Bundle 'vim-scripts/closetag.vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'shime/vim-livedown.git'
+Bundle 'ap/vim-css-color'
 
 call vundle#end()
 
@@ -63,6 +65,15 @@ set autoread                          " reload files if changed by filesystem
 set backspace=indent,eol,start        " let the backspace key work normally
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with  * or +.
 set cursorline                        " cursorline on by default
+
+" folding settings:
+" za - toggle, zc - closes, zo - opens, zR - opens all, zM - closes all
+
+set foldmethod=indent                 "fold based on indent
+set foldnestmax=10                    "deepest fold is 10 levels
+set nofoldenable                      "dont fold by default
+set foldlevel=1                       "this is just what i use
+
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
 set history=1000                      " number of history levels
@@ -231,10 +242,6 @@ endif
 
 "Force enable sass syntax
 au BufRead,BufNewFile *.sass set ft=sass
-
-
-
-
 
 
 
