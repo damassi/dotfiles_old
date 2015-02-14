@@ -29,7 +29,6 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lfilho/cosco.vim'
-" Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'rstacruz/sparkup'
@@ -48,6 +47,7 @@ Bundle 'wavded/vim-stylus'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'shime/vim-livedown.git'
 Bundle 'ap/vim-css-color'
+Bundle 'dyng/ctrlsf.vim'
 
 call vundle#end()
 
@@ -171,6 +171,9 @@ nmap <silent> <leader>er :Errors<CR>
 "Usage: <tag>[PRESS TAB]
 inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
 
+"Remaps :CtrlSF (SublimeText-like search) to :cf
+ca Af CtrlSF
+
 
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
@@ -226,6 +229,10 @@ let g:gitgutter_max_signs = 1000
 let g:syntastic_javascript_checkers = ['jsxhint']
 
 
+" CtrlSF (SublimeText-like search)
+let g:ctrlsf_winsize = '100'
+
+
 " Colorscheme
 " --------------------------------------------------------------------------------------------
 colors abra "apprentice busybee jellybeans railscasts molokai molokai
@@ -242,7 +249,4 @@ endif
 
 "Force enable sass syntax
 au BufRead,BufNewFile *.sass set ft=sass
-
-
-
 
