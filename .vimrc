@@ -171,7 +171,7 @@ nmap <silent> <leader>er :Errors<CR>
 "Usage: <tag>[PRESS TAB]
 inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
 
-"Remaps :CtrlSF (SublimeText-like search) to :cf
+"Remaps :CtrlSF (SublimeText-like search) to :Af, close to :Ag
 ca Af CtrlSF
 
 
