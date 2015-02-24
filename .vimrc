@@ -66,14 +66,12 @@ set backspace=indent,eol,start        " let the backspace key work normally
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with  * or +.
 set cursorline                        " cursorline on by default
 
-" folding settings:
+" Folding settings:
 " za - toggle, zc - closes, zo - opens, zR - opens all, zM - closes all
-
 set foldmethod=indent                 "fold based on indent
 set foldnestmax=10                    "deepest fold is 10 levels
 set nofoldenable                      "dont fold by default
 set foldlevel=1                       "this is just what i use
-
 set guioptions-=r                     " disable scrollbars on mvim
 set guioptions-=L                     " disable left scrollbar on vsplit
 set history=1000                      " number of history levels
@@ -173,6 +171,9 @@ inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
 
 "Remaps :CtrlSF (SublimeText-like search) to :Af, close to :Ag
 ca Af CtrlSF
+
+"Remaps :BW (Close current buffer) to :JJ
+ca JJ BW
 
 
 " NERDTree configuration
