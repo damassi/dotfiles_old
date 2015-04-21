@@ -15,11 +15,6 @@ source $ZSH/oh-my-zsh.sh
 # ----------------------------------------------------------------------------------------------------------------
 
 export PATH="/Users/damassi/.rvm/gems/ruby-2.1.0/bin:/Users/damassi/.rvm/gems/ruby-2.1.0@global/bin:/Users/damassi/.rvm/rubies/ruby-2.1.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/MacGPG2/bin:/Users/damassi/.rvm/bin"
-export S3_KEY="AKIAJB3NYVLVQA4N4JYQ"
-export S3_SECRET="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"
-export S3_REGION="us-west-2"
-export S3_ASSET_URL="https://s3-us-west-2"
-export S3_BUCKET_NAME="unseenworldsrecords"
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/id_rsa"
@@ -30,6 +25,12 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='mvim'
 fi
+
+# GO
+export PATH="/usr/local/go/bin:$PATH"
+
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
 
 
 # Autocompletion
@@ -60,12 +61,38 @@ alias Sites='cd ~/Sites'
 alias gh='cd ~/Sites/Github'
 alias cn='cd ~/Sites/CN'
 alias sim='cd ~/Desktop/simulator; and rake'
-alias son='cd /Users/damassi/Sites/sonify'
 alias make='make -j'
-# alias node='node --harmony'
+alias wfmu='tuner wfmu'
+alias kpfa='tuner kpfa'
+alias wnyc='tuner wnyc'
 
 # Mongo DB
 alias startmongo="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 alias stopmongo="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
 
+# Sonify Project
+alias son='cd /Users/damassi/Sites/sonify'
+alias son-start='cd /Users/damassi/Sites/sonify; rails s'
+alias son-spec='open https://docs.google.com/spreadsheets/d/1lQR7wpLQgxZZNdg5OMqF_mBfhMFJOpyOPtg-QGw_TPo/edit#gid=572943863'
+alias son-tickets='open http://sonify.lighthouseapp.com/projects/123629-sonify/tickets'
+alias son-gh='open https://github.com/matthewleejohnston/sonify'
+
+
+# Kindling
+# ----------------------------------------------------------------------
+
+# Paths
+alias kindling='cd ~/Sites/Kindling/kindlingdev'
+alias kindling-dev='kindling; cd development'
+alias kapp='kindling-dev; cd kindlingapp'
+alias kf='kindling-dev; cd kindlingapp/frontend'
+
+# Server
+alias kvagrant='kindling; .scripts/local/start'
+alias kreset='kindling; .scripts/vm/kindlingapp.reset'
+alias kssh='kindling; vagrant ssh'
+
+# Development Tasks
+alias kgulp='kapp; cd frontend; gulp'
+alias kvim='kapp; mvim; cd frontend'
 

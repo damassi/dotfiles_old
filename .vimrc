@@ -48,6 +48,7 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'shime/vim-livedown.git'
 Bundle 'ap/vim-css-color'
 Bundle 'dyng/ctrlsf.vim'
+" Bundle 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -227,16 +228,21 @@ let g:gitgutter_max_signs = 1000
 
 " Syntasitc settings
 " --------------------------------------------------------------------------------------------
-let g:syntastic_javascript_checkers = ['jsxhint']
-
+" let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " CtrlSF (SublimeText-like search)
 let g:ctrlsf_winsize = '100'
 
 
+" JSX Settings
+" --------------------------------------------------------------------------------------------
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+
 " Colorscheme
 " --------------------------------------------------------------------------------------------
-colors abra "apprentice busybee jellybeans railscasts molokai molokai
+colors abra "distinguished apprentice busybee jellybeans railscasts molokai
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -250,4 +256,6 @@ endif
 
 "Force enable sass syntax
 au BufRead,BufNewFile *.sass set ft=sass
+
+
 
