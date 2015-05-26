@@ -25,7 +25,6 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'gmarik/Vundle.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'heavenshell/vim-jsdoc'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lfilho/cosco.vim'
@@ -48,6 +47,11 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'shime/vim-livedown.git'
 Bundle 'ap/vim-css-color'
 Bundle 'dyng/ctrlsf.vim'
+Bundle 'othree/yajs.vim'
+Bundle 'chriskempson/base16-vim'
+Bundle 'Lokaltog/vim-easymotion'
+
+" Bundle 'jelera/vim-javascript-syntax'
 " Bundle 'mxw/vim-jsx'
 
 call vundle#end()
@@ -57,6 +61,7 @@ call vundle#end()
 "--------------------------------------------------------------------------------------------
 
 filetype plugin indent on             " filetype detection and settings
+filetype plugin on
 syntax on                             " syntax highlighting
 silent! runtime macros/matchit.vim    " matchit comes with Vim
 set nocompatible                      " not strictly necessary but useful in some scenarii
@@ -64,8 +69,11 @@ set autoindent                        " always set autoindent on
 set copyindent                        " copy previous autoindent
 set autoread                          " reload files if changed by filesystem
 set backspace=indent,eol,start        " let the backspace key work normally
+set background=dark                   " Sets the Base16 colorsceme package to dark by default
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with  * or +.
 set cursorline                        " cursorline on by default
+
+set omnifunc=syntaxcomplete#Complete
 
 " Folding settings:
 " za - toggle, zc - closes, zo - opens, zR - opens all, zM - closes all
@@ -176,6 +184,21 @@ ca Af CtrlSF
 "Remaps :BW (Close current buffer) to :JJ
 ca JJ BW
 
+"Remaps <C-x><C-o> command to ,,
+inoremap <leader>, <C-x><C-o>
+
+
+" EasyMotion configuration
+" --------------------------------------------------------------------------------------------
+
+"Two character search
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+
+" Update search to use EM
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 
 " NERDTree configuration
 " --------------------------------------------------------------------------------------------
@@ -240,9 +263,9 @@ let g:ctrlsf_winsize = '100'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
-" Colorscheme
+" Colorscheme - See http://chriskempson.github.io/base16/#bright
 " --------------------------------------------------------------------------------------------
-colors abra "distinguished apprentice busybee jellybeans railscasts molokai
+colors base16-eighties "abra sorcerer molokai busybee apprentice abra distinguished jellybeans railscasts
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -256,6 +279,7 @@ endif
 
 "Force enable sass syntax
 au BufRead,BufNewFile *.sass set ft=sass
+
 
 
 
