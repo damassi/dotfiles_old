@@ -26,11 +26,19 @@ else
   export EDITOR='mvim'
 fi
 
+# MySQL
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
 # GO
 export PATH="/usr/local/go/bin:$PATH"
 
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
+
+# Docker / Boot2Docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/damassi/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 
 
 # Autocompletion
@@ -55,7 +63,7 @@ bindkey '^T' autosuggest-toggle
 
 alias zshconfig="mvim ~/.zshrc"
 alias ohmyzsh="mvim ~/.oh-my-zsh"
-
+alias ctags="`brew --prefix`/bin/ctags"
 alias dt='cd ~/Desktop'
 alias Sites='cd ~/Sites'
 alias gh='cd ~/Sites/Github'
@@ -65,17 +73,15 @@ alias make='make -j'
 alias wfmu='tuner wfmu'
 alias kpfa='tuner kpfa'
 alias wnyc='tuner wnyc'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
-# Mongo DB
-alias startmongo="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-alias stopmongo="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+# Easy corrections via https://github.com/nvbn/thefuck
+alias fuck='$(thefuck $(fc -ln -1))'
+alias f='fuck'
 
-# Sonify Project
-alias son='cd /Users/damassi/Sites/sonify'
-alias son-start='cd /Users/damassi/Sites/sonify; rails s'
-alias son-spec='open https://docs.google.com/spreadsheets/d/1lQR7wpLQgxZZNdg5OMqF_mBfhMFJOpyOPtg-QGw_TPo/edit#gid=572943863'
-alias son-tickets='open http://sonify.lighthouseapp.com/projects/123629-sonify/tickets'
-alias son-gh='open https://github.com/matthewleejohnston/sonify'
+# MySQL
+alias mysqlstart="mysql.server start"
+alias mysqlstop="mysql.server stop"
 
 
 # Kindling
@@ -84,15 +90,40 @@ alias son-gh='open https://github.com/matthewleejohnston/sonify'
 # Paths
 alias kindling='cd ~/Sites/Kindling/kindlingdev'
 alias kindling-dev='kindling; cd development'
+alias kmanager='kindling-dev; cd manager5'
 alias kapp='kindling-dev; cd kindlingapp'
 alias kf='kindling-dev; cd kindlingapp/frontend'
 
 # Server
 alias kvagrant='kindling; .scripts/local/start'
 alias kreset='kindling; .scripts/vm/kindlingapp.reset'
+alias ktreset='kindling; .scripts/vm/kindlingapp.tracer'
+alias kmemcache='kindling; .scripts/vm/kindlingapp.clearmemcache'
+alias kfpm='kindling; .scripts/vm/kindlingapp.fpm'
 alias kssh='kindling; vagrant ssh'
 
 # Development Tasks
 alias kgulp='kapp; cd frontend; gulp'
-alias kvim='kapp; mvim; cd frontend'
+alias kvim='kapp; atom .; cd frontend'
 
+# Project Management
+alias kbugs='open https://kng-apps.kindlingapp.com/trac/report/7'
+alias kasana='open https://app.asana.com/'
+
+
+# Oh My Zsh
+# ----------------------------------------------------------------------
+
+# Setup zsh-autosuggestions
+source /Users/damassi/.zsh-autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
+
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
