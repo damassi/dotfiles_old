@@ -19,13 +19,6 @@ export PATH="/Users/damassi/.rvm/gems/ruby-2.1.0/bin:/Users/damassi/.rvm/gems/ru
 # SSH
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
-
 # MySQL
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
@@ -49,7 +42,7 @@ source ~/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 zle-line-init() {
-    zle autosuggest-start
+  zle autosuggest-start
 }
 zle -N zle-line-init
 
@@ -59,7 +52,7 @@ bindkey '^T' autosuggest-toggle
 
 
 # Aliases
-# ----------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 alias zshconfig="mvim ~/.zshrc"
 alias ohmyzsh="mvim ~/.oh-my-zsh"
@@ -83,6 +76,8 @@ alias f='fuck'
 alias mysqlstart="mysql.server start"
 alias mysqlstop="mysql.server stop"
 
+# Environment
+alias zshrc='cd; atom .zshrc'
 
 # Kindling
 # ----------------------------------------------------------------------
@@ -91,8 +86,11 @@ alias mysqlstop="mysql.server stop"
 alias kindling='cd ~/Sites/Kindling/kindlingdev'
 alias kindling-dev='kindling; cd development'
 alias kmanager='kindling-dev; cd manager5'
+alias kgizmo='kindling-dev; cd gizmo'
 alias kapp='kindling-dev; cd kindlingapp'
+alias kmarketing='kindling-dev; cd marketing2'
 alias kf='kindling-dev; cd kindlingapp/frontend'
+alias kmentions='kindling-dev; cd react-tinymce-mention'
 
 # Server
 alias kvagrant='kindling; .scripts/local/start'
@@ -101,14 +99,32 @@ alias ktreset='kindling; .scripts/vm/kindlingapp.tracer'
 alias kmemcache='kindling; .scripts/vm/kindlingapp.clearmemcache'
 alias kfpm='kindling; .scripts/vm/kindlingapp.fpm'
 alias kssh='kindling; vagrant ssh'
+alias ktail='kindling; vagrant ssh -c "tail -f /var/log/kindling/* /var/log/manager/* /var/log/apache2/kindling.error.log /var/log/supervisor/*"'
+
+# Gizmo Commands
+alias gatom='kgizmo; atom .;'
+alias gstart='kindling; vagrant ssh -c "cd /srv/www/gizmo; npm start"'
+alias glaunch='open http://192.168.33.10:3000/'
+
+# Manager Commands
+alias matom='kmanager; atom .;'
 
 # Development Tasks
 alias kgulp='kapp; cd frontend; gulp'
-alias kvim='kapp; atom .; cd frontend'
+alias katom='kapp; atom .; cd frontend'
 
 # Project Management
-alias kbugs='open https://kng-apps.kindlingapp.com/trac/report/7'
+alias kdocs='open http://dev.kindlingdev.com/api/docs'
+alias ktrac='open https://kng-apps.kindlingapp.com/trac/report/7'
 alias kasana='open https://app.asana.com/'
+
+
+# Time Inc
+# ----------------------------------------------------------------------
+
+alias t='cd && cd time';
+alias trights-old='t && cd ape-edit-photorights-www';
+alias trights='t && cd edit-rights-www';
 
 
 # Oh My Zsh
@@ -119,7 +135,7 @@ source /Users/damassi/.zsh-autosuggestions/autosuggestions.zsh
 
 # Enable autosuggestions automatically
 zle-line-init() {
-    zle autosuggest-start
+  zle autosuggest-start
 }
 
 zle -N zle-line-init
