@@ -16,7 +16,6 @@ call vundle#begin()
 "--------------------------------------------------------------------------------------------
 
 Bundle 'Raimondi/delimitMate'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'Yggdroot/indentLine'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'bling/vim-airline.git'
@@ -73,7 +72,6 @@ set background=dark                   " Sets the Base16 colorsceme package to da
 set clipboard=unnamed                 " Now all operations such as yy, D, and P work with the clipboard. No need to prefix them with  * or +.
 set cursorline                        " cursorline on by default
 
-set omnifunc=syntaxcomplete#Complete
 
 " Folding settings:
 " za - toggle, zc - closes, zo - opens, zR - opens all, zM - closes all
@@ -265,7 +263,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " Colorscheme - See http://chriskempson.github.io/base16/#bright
 " --------------------------------------------------------------------------------------------
-colors base16-eighties "abra sorcerer molokai busybee apprentice abra distinguished jellybeans railscasts
+colors abra "sorcerer molokai busybee apprentice abra distinguished jellybeans railscasts
 set fillchars+=vert:\.                " Dotted vertical line separating nerdtree gutter
 hi clear VertSplit                    " Clear defaults
 highlight SignColumn guibg=#31322c    " GitGutter background color
@@ -279,7 +277,3 @@ endif
 
 "Force enable sass syntax
 au BufRead,BufNewFile *.sass set ft=sass
-
-
-
-
