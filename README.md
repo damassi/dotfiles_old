@@ -3,6 +3,6 @@ dotfiles
 
 Personal dotfile configurations
 
-Atom Settings
+VSCode settings 
 -------------
-https://gist.github.com/damassi/0e018fa498a53c5fbc97
+https://gist.github.com/damassi/8b209c5782b4eca445694df1377b3a81
